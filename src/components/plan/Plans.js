@@ -5,11 +5,6 @@ import Plan from './Plan';
 
 var plans = require('../../data/plans.json');
 
-const style = {
-    display: "inline-block",
-    clear: "both"
-};
-
 export default class Plans extends Component {
 
     render() {
@@ -20,7 +15,7 @@ export default class Plans extends Component {
         });
 
         return (
-            <div style={style}>
+            <div className="row justify-content-lg-center">
                 {planCards}
             </div>
         );
