@@ -9,8 +9,12 @@ const authUtils = require('../utils/auth.js');
 const ReactGA = require('react-ga');
 
 const style = {
-    account: {
-        "display": "inline-block"
+    leadSmall: {
+        fontSize: "16px",
+        color: "#A2A0A0",
+        fontWeight: 300,
+        lineHeight: "28px",
+        marginTop: "15px",
     }
 };
 
@@ -160,11 +164,21 @@ export default class AccountPage extends Component {
     render() {
         let currentPlan = this.renderPlanOutput()
         return (
-            <div style={style.account} data-qa="account-page">
-                {currentPlan}
-                <ChangePassword changePassword={this.handleChangePassword.bind(this)} message={this.state.changePasswordMessage}/>
-                <br />
-                <Plans planSelected={(id) => this.handlePlanChange(id)} />
+            <div data-qa="account-page">
+
+                <div className="row justify-content-lg-center">
+                    <div className="col-lg-6 text-center">
+                        <h3>{currentPlan}</h3>
+                        <p style={style.leadSmall}>Our basic plan is Free. However if you choose to opt for one of our paid plans, you can cancel at anytime.</p>
+                    </div>
+                </div>
+
+                <Plans planSelected={(id) => this.handlePlanSelect(id)}/>
+
+
+                <div className="row justify-content-lg-center">
+                    <ChangePassword changePassword={this.handleChangePassword.bind(this)} message={this.state.changePasswordMessage}/>
+                </div>
             </div>
         );
     }
