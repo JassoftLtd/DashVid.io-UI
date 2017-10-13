@@ -71,8 +71,8 @@ class Home extends Component {
 
     render() {
         return (
-            <div className="Home">
-                <div className="container md-center">
+            <div>
+                <div className="md-center">
                     <div className="row justify-content-lg-center" style={style.hero}>
                         <div className="col-lg-4 text-center">
                             <div style={style.heroImg}>
