@@ -37,7 +37,7 @@ export default class Nav extends Component {
 
         return (
             <AppBar style={style.bar}
-                    iconElementLeft={<Link to="/"><img src="/images/DashVid.svg" alt="DashVid.io" data-qa="nav-link-home" style={style.logo} /></Link>}
+                    iconElementLeft={<Link to="/"><img src="/images/dashvid.svg" alt="DashVid.io" data-qa="nav-link-home" style={style.logo} /></Link>}
                 iconElementRight={
                     <span>
                         {appLinks}
