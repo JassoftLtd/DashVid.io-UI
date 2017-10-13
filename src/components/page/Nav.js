@@ -1,50 +1,93 @@
 import React, {Component} from 'react';
-import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 
 const style = {
-    bar: {
-        "backgroundColor": "white"
-    },
     logo: {
         "height": "40px",
         "cursor": "hand"
-    }
+    },
+
+    navItem: {
+        marginLeft: "10px",
+        fontSize: "14px"
+    },
+
+    btnSecondary: {
+        fontSize: "14px",
+        borderRadius: "50px",
+        border: "1.5px solid #555",
+        backgroundColor: "#fff",
+        color: "#555",
+        padding: "8px 20px",
+    },
+    
 };
 
 export default class Nav extends Component {
 
+    handleLogout(e) {
+        e.preventDefault();
+        console.log('The link was clicked.');
+        this.props.logOut()
+    }
+
     render() {
-        const {loggedIn, logOut} = this.props;
+        const {loggedIn} = this.props;
 
-        let appLinks
-        let authLink
+        let links
         if(loggedIn) {
-            appLinks = (
-                <span>
-                    <Link to="/video"><RaisedButton data-qa="nav-btn-videos" label="Videos"/></Link>
-                    <Link to="/account"><RaisedButton data-qa="nav-btn-account" label="Account" /></Link>
-                    {/* Which Plan */}
-
-                </span>
+            links = (
+                <ul className="navbar-nav ml-auto">
+                    <li style={style.navItem}>
+                        <Link to="/video" className="nav-link" data-qa="nav-btn-videos">Videos</Link>
+                    </li>
+                    <li style={style.navItem}>
+                        <Link to="/account" className="nav-link" data-qa="nav-btn-account">Account</Link>
+                    </li>
+                    <li style={style.navItem}>
+                        <a onClick={this.handleLogout.bind(this)}
+                           className="btn btn-secondary"
+                           style={style.btnSecondary}
+                           data-qa="nav-btn-logout">Log out</a>
+                    </li>
+                </ul>
             )
-            authLink = (<RaisedButton onTouchTap={logOut} data-qa="nav-btn-logout" label="Logout" />)
         } else {
-            authLink = (<Link to="/login"><RaisedButton data-qa="nav-btn-login" label="Login" /></Link>)
+            links = (
+                    <ul className="navbar-nav ml-auto">
+                        <li style={style.navItem}>
+                            <Link to="/login"
+                                  className="btn btn-secondary"
+                                  style={style.btnSecondary}
+                                  data-qa="nav-btn-login">Log in</Link>
+                        </li>
+                    </ul>
+                    )
         }
 
         return (
-            <AppBar style={style.bar}
-                    iconElementLeft={<Link to="/"><img src="/images/dashvid.svg" alt="DashVid.io" data-qa="nav-link-home" style={style.logo} /></Link>}
-                iconElementRight={
-                    <span>
-                        {appLinks}
-                        {authLink}
-                    </span>
-                }
-            />
+            <div className="container">
+                <div className="row justify-content-lg-center">
+
+                    <div className="col-lg-9">
+                        <nav className="navbar navbar-expand-lg navbar-light">
+                            <Link to="/" activeClassName="navbar-brand">
+                                <img src="images/dashvid.svg" alt="DashVid.io" style={style.logo} />
+                            </Link>
+                            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span className="navbar-toggler-icon"></span>
+                            </button>
+
+                            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                                {links}
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+
         );
     }
 }
@@ -52,4 +95,4 @@ export default class Nav extends Component {
 Nav.propTypes = {
     loggedIn: PropTypes.bool.isRequired,
     logOut: PropTypes.func.isRequired
-}
+};

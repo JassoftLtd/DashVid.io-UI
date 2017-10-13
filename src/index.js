@@ -98,14 +98,31 @@ export default App;
 
 const style = {
     footer: {
-        background: "#111",
-        color: "#888",
-        textAlign: "center",
-        padding: "0.5em 2em"
+        fontSize: "15px"
     },
-    footerLink: {
-        color: "#ddd",
-    }
+
+    footerRight: {
+        float: "right",
+    },
+
+    footerRightUl: {
+        listStyle: "none",
+        margin: 0,
+        marginTop: "-20px",
+        padding: 0,
+        verticalAlign: "top",
+        display: "inline-block"
+    },
+
+    footerRightUlLi: {
+        display: "inline-block",
+        margin: "0 5px"
+    },
+
+    footerRightA: {
+        color: "#444"
+    },
+
 };
 
 class PageWrapper extends Component {
@@ -119,13 +136,42 @@ class PageWrapper extends Component {
                     {this.props.children}
                 </div>
 
-                <div style={style.footer}>
-                    <p>
-                        <Link to="/terms-and-conditions" style={style.footerLink}>Terms &amp; Conditions</Link> |
-                        <Link to="/privacy-policy" style={style.footerLink}>Privacy Policy</Link> |
-                        <Link to="/acceptable-use-policy" style={style.footerLink}>Acceptable use Policy</Link> |
-                        <Link to="/cookies-policy" style={style.footerLink}>Cookies Policy</Link>
-                    </p>
+                <div>
+                    <hr />
+                    <footer className="container" style={style.footer}>
+                        <div className="row justify-content-lg-center">
+                            <div className="col-lg-9">
+                                <div className="footer_left">
+                                    <span>© Dashvid.io</span>
+                                </div>
+                                <div style={style.footerRight}>
+                                    <ul style={style.footerRightUl}>
+                                        <li style={style.footerRightUlLi}>
+                                            <Link to="/terms-and-conditions"
+                                                  style={style.footerRightA} >Terms &amp; Conditions
+                                            </Link>
+                                        </li>
+                                        <li style={style.footerRightUlLi}>
+                                            <Link to="/privacy-policy"
+                                                  style={style.footerRightA} >Privacy Policy
+                                            </Link>
+                                        </li>
+                                        <li style={style.footerRightUlLi}>
+                                            <Link to="/acceptable-use-policy"
+                                                  style={style.footerRightA} >Acceptable use Policy
+                                            </Link>
+                                        </li>
+                                        <li style={style.footerRightUlLi}>
+                                            <Link to="/cookies-policy"
+                                                  style={style.footerRightA} >Cookies Policy
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </footer>
                 </div>
             </div>
         )

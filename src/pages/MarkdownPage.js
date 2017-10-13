@@ -2,12 +2,6 @@ import React, {Component} from 'react';
 
 const ReactMarkdown = require('react-markdown');
 
-const style = {
-    content: {
-        "margin": 12
-    }
-};
-
 export default class MarkdownPage extends Component {
 
     constructor(props, content) {
@@ -20,9 +14,7 @@ export default class MarkdownPage extends Component {
 
     render() {
         return (
-            <div style={style.content}>
-                <ReactMarkdown source={this.state.content} />
-            </div>
+            <ReactMarkdown source={this.state.content} />
         );
     }
 }

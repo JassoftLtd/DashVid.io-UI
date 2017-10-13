@@ -20,3 +20,31 @@
     display: inline-block;
     zoom: 1;
 }
+
+/*Media Q*/
+
+@media (max-width: 990px) {
+    .md-center {
+        text-align: center;
+    }
+
+    #hero h1 {
+        margin: 40px auto 20px;
+    }
+
+    #hero hr {
+        margin: 0 auto;
+        width: 100% !important;
+        opacity: 0.2!important;
+        height: 1px !important;
+
+    }
+}
+
+
+@media (max-width: 767px) {
+    .price_card {
+        display: block;
+        margin: 15px auto;
+    }
+}
