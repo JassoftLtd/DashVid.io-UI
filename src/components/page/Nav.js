@@ -70,7 +70,7 @@ export default class Nav extends Component {
             <div className="container">
                 <div className="row justify-content-lg-center">
 
-                    <div className="col-lg-9">
+                    <div className="col-lg-12">
                         <nav className="navbar navbar-expand-lg navbar-light">
                             <Link to="/" activeClassName="navbar-brand">
                                 <img src="images/DashVid.svg" alt="DashVid.io" style={style.logo} />
