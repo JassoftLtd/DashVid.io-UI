@@ -73,7 +73,7 @@ export default class Nav extends Component {
                     <div className="col-lg-9">
                         <nav className="navbar navbar-expand-lg navbar-light">
                             <Link to="/" activeClassName="navbar-brand">
-                                <img src="images/dashvid.svg" alt="DashVid.io" style={style.logo} />
+                                <img src="images/DashVid.svg" alt="DashVid.io" style={style.logo} />
                             </Link>
                             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
