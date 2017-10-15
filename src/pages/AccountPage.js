@@ -173,7 +173,7 @@ export default class AccountPage extends Component {
                     </div>
                 </div>
 
-                <Plans planSelected={(id) => this.handlePlanSelect(id)}/>
+                <Plans planSelected={(id) => this.handlePlanChange(id)}/>
 
 
                 <div className="row justify-content-lg-center">
